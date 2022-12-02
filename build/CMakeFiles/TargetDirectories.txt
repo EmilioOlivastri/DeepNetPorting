@@ -1,3 +1,0 @@
-/home/slam-emix/Workspace/Examples/porting_deepNetC/build/CMakeFiles/rebuild_cache.dir
-/home/slam-emix/Workspace/Examples/porting_deepNetC/build/CMakeFiles/edit_cache.dir
-/home/slam-emix/Workspace/Examples/porting_deepNetC/build/CMakeFiles/deep_app.dir
