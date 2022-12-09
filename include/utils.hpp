@@ -30,9 +30,9 @@ at::Tensor toTensor(cv::Mat img, bool show_output = false, bool unsqueeze = fals
 // Function that is used to transpose tensors
 at::Tensor transpose(at::Tensor tensor, c10::IntArrayRef dims = { 0, 3, 1, 2 })
 {
-    std::cout << "shape before : " << tensor.sizes() << std::endl;
+    //std::cout << "shape before : " << tensor.sizes() << std::endl;
     at::Tensor tensor_t = tensor.permute(dims);
-    std::cout << "shape after : " << tensor_t.sizes() << std::endl;
+    //std::cout << "shape after : " << tensor_t.sizes() << std::endl;
     return tensor_t;
 }
 

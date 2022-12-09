@@ -23,10 +23,10 @@ int main(int argc, const char* argv[])
 
   std::cout << "ok\n";
 
+  /**/
   // Loading image example of input
-  std::string image_path = "path_to_img.png";
+  std::string image_path = "path/to/img.png";
   int size_resnet = 244;
-  // int size_yolo = 640;
   cv::Mat img = cv::imread(image_path, cv::IMREAD_COLOR);
   cv::resize(img, img, cv::Size(size_resnet, size_resnet), cv::INTER_LINEAR);
   cv::imshow("Display window", img);
@@ -51,12 +51,10 @@ int main(int argc, const char* argv[])
   // ( Usually in training this is not true )
   // Adding it to the dimension in pos 0
   tens_img.unsqueeze_(0);
+  tens_img.to(at::kCUDA);
 
   // Create a vector of inputs.
   std::vector<torch::jit::IValue> inputs;
-  
-  // Example input
-  //inputs.push_back(torch::ones({1, 3, 224, 224}));
   
   // Real image converted to tensor
   inputs.push_back(tens_img);
@@ -69,6 +67,6 @@ int main(int argc, const char* argv[])
 
   // Only showing the first 5 values
   std::cout << output.slice(/*dim=*/1, /*start=*/0, /*end=*/5) << '\n';
-  
+  /**/
   
 }
