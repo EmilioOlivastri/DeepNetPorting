@@ -26,7 +26,7 @@ int main(int argc, const char* argv[])
   module.eval();
   module.to(torch::kCUDA);
 
-  std::string image_path = "path/to/img.png";
+  std::string image_path = "/home/slam-emix/Immagini/img.png";
   int size_resnet = 224;
   cv::Mat img = cv::imread(image_path, cv::IMREAD_COLOR);
   cv::resize(img, img, cv::Size(size_resnet, size_resnet), cv::INTER_LINEAR);

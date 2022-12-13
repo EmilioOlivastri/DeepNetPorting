@@ -1,6 +1,9 @@
 #include "utils.hpp"
 #include "torch_tensorrt/torch_tensorrt.h"
 
+#include <c10/cuda/CUDAStream.h>
+#include <ATen/cuda/CUDAEvent.h>
+
 int main(int argc, const char* argv[]) 
 {
   if (argc != 2) 
@@ -27,10 +30,12 @@ int main(int argc, const char* argv[])
   module.to(at::kCUDA);
   module.eval();
 
+  if (torch::cuda::is_available()) {
+  std::cout << "CUDA is available! Training on GPU." << std::endl;
+  }
+
   std::vector<torch_tensorrt::Input> inputs_specs;
-  std::vector<int64_t> shape;
-  shape.push_back(1); shape.push_back(3);
-  shape.push_back(224); shape.push_back(224);
+  std::vector<int64_t> shape = {1, 3, 640, 640};
   torch_tensorrt::Input input_info(shape, torch::kFloat32);
 
 
@@ -41,7 +46,7 @@ int main(int argc, const char* argv[])
   
   auto trt_mod = torch_tensorrt::ts::compile(module, info);
 
-  trt_mod.save("mod_trt.ts");
+  trt_mod.save("yolov7.ts");
 
   return 0;  
 }
