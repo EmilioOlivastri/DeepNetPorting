@@ -3,14 +3,20 @@ Porting your NN trained and validated on Pytorch to your c++ projects
 
 # Dependencies
 ## C++
-- LibTorch
-- TensorRT
-- Cuda
-- Torch-TensorRT
+- LibTorch v1.13.0+cu117
+- TensorRT v8.5.1.7
+- Cuda v11.7
+- Torch-TensorRT v1.2.0
 
 ## Python
-- pytorch
-- torch_tensorrt
+- torch = 1.12.1 + cu113
+- torchvision = 0.13.1 + cu113
+- torch_tensorrt = 1.2.0
+
+```
+pip3 install torch-tensorrt==1.2.0 --find-links https://github.com/pytorch/TensorRT/releases/expanded_assets/v1.2.0
+
+```
 
 ## Step 1
 Import your favorite model to c++ using the python code in the scripts folder.
