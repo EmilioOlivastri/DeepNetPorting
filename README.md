@@ -6,7 +6,8 @@ Porting your NN trained and validated on Pytorch to your c++ projects
 - LibTorch v1.13.0+cu117
 - TensorRT v8.5.1.7
 - Cuda v11.7
-- Torch-TensorRT v1.2.0
+- Torch-TensorRT v1.3.0
+- MKL-Library
 
 ## Python
 - torch = 1.12.1 + cu113
